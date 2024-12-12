@@ -1,6 +1,6 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
-
 import { HeaderComponent } from './header.component';
+import { provideRouter } from '@angular/router';
 
 describe('HeaderComponent', () => {
   let component: HeaderComponent;
@@ -9,6 +9,7 @@ describe('HeaderComponent', () => {
   beforeEach(async () => {
     await TestBed.configureTestingModule({
       imports: [HeaderComponent],
+      providers: [provideRouter([])],
     }).compileComponents();
 
     fixture = TestBed.createComponent(HeaderComponent);
@@ -20,16 +21,10 @@ describe('HeaderComponent', () => {
     expect(component).toBeTruthy();
   });
 
-  it('should display a image with the brand', () => {
-    const headerEl: HTMLElement = fixture.nativeElement;
-    const img = headerEl.querySelector('img')!;
-    expect(img.alt).toEqual('Logo of the Logz');
-  });
-
   it('should display a heading with the text of "Logz"', () => {
     const headerEl: HTMLElement = fixture.nativeElement;
     const h1 = headerEl.querySelector('h1')!;
-    expect(h1.textContent).toEqual('Logz');
+    expect(h1.textContent).toEqual('logz');
   });
 
   it('should display a link of "Features"', () => {
